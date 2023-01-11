@@ -1,0 +1,43 @@
+mat-card {
+  display: flex;
+  margin: 20px;
+  background-color: #3f51b5;
+  padding: 5px;
+  width: 400px;
+  color: white;
+}
+
+mat-card-title-group {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+mat-divider {
+  background-color: red;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 50px;
+}
+
+.icon-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+.daily {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 20px;
+}
