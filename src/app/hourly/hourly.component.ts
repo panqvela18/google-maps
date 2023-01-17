@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WeatherService } from '../weather.service';
 
@@ -25,6 +25,8 @@ export class HourlyComponent {
   windSpeed: any;
   region: any;
 
+  @Input()markerPosition=''
+
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.paramData = params;
@@ -50,11 +52,6 @@ export class HourlyComponent {
           this.region = region;
         });
     });
-    this.router.navigate(['weather/hourly'], {
-      queryParams: {
-        lat: this.center.lat.toFixed(2),
-        lng: this.center.lng.toFixed(2),
-      },
-    });
+   
   }
 }

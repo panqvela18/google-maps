@@ -55,11 +55,6 @@ export class DailyComponent {
           this.region = region;
         });
     });
-    this.router.navigate(['weather/daily'], {
-      queryParams: {
-        lat: this.center.lat.toFixed(2),
-        lng: this.center.lng.toFixed(2),
-      },
-    });
+   
   }
 }

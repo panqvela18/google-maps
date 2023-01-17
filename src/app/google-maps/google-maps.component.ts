@@ -20,7 +20,8 @@ export class GoogleMapsComponent implements OnInit {
     },
   ];
 
-  constructor(private route: Router) {}
+
+  constructor(private route: Router) { }
   hourlyClick() {
     this.route.navigate(['weather/hourly'], {
       queryParams: {
@@ -53,13 +54,6 @@ export class GoogleMapsComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.markerPositions=[
-      {
-        lat:this.center.lat,
-        lng:this.center.lng
-      }
-    ]
-    console.log(this.markerPositions)
+    
   }
-
 }
