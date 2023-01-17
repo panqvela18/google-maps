@@ -1,45 +1,41 @@
-
 <h2 class="daily">Hourly weather forecast</h2>
-<h3 class="region">{{region}}</h3>
+<h3 class="region">{{ region }}</h3>
 <div class="container" *ngIf="data">
-    <mat-card *ngFor="let index of [0, 1, 2, 3, 4, 5]">
-      <mat-card-header>
-        <mat-card-title-group>
-          <div class="icon-flex">
-            <span>Date</span>
-            <mat-card-title>{{ hourly[index] }}</mat-card-title>
+  <mat-card *ngFor="let index of [0, 1, 2, 3, 4, 5]">
+    <mat-card-header>
+      <mat-card-title-group>
+        <div class="icon-flex">
+          <span>Date</span>
+          <mat-card-title>{{ hourly[index] }}</mat-card-title>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="date_range"
+          ></mat-icon>
+        </div>
+        <div class="icon-flex">
+          <mat-card-subtitle>Temperature</mat-card-subtitle>
+          <div class="icon">
+            <span>{{ temperatures[index] }} ℃</span>
             <mat-icon
               aria-hidden="false"
               aria-label="Example home icon"
-              fontIcon="date_range"
+              fontIcon="thermostat"
             ></mat-icon>
           </div>
-          <div class="icon-flex">
-            <mat-card-subtitle>Temperature</mat-card-subtitle>
-            <div class="icon">
-              <span>{{temperatures[index] }} ℃</span>
-              <mat-icon
-                aria-hidden="false"
-                aria-label="Example home icon"
-                fontIcon="thermostat"
-              ></mat-icon>
-            </div>
+        </div>
+        <div class="icon-flex">
+          <mat-card-subtitle>Windspeed </mat-card-subtitle>
+          <div class="icon">
+            <span>{{ windSpeed[index] }} km/h</span>
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="air"
+            ></mat-icon>
           </div>
-          <div class="icon-flex">
-            <mat-card-subtitle>Windspeed </mat-card-subtitle>
-            <div class="icon">
-              <span>{{windSpeed[index]}} km/h</span>
-              <mat-icon
-                aria-hidden="false"
-                aria-label="Example home icon"
-                fontIcon="air"
-              ></mat-icon>
-            </div>
-          </div>
-        </mat-card-title-group>
-      </mat-card-header>
-    </mat-card>
-  </div>
-  
-  
-  
+        </div>
+      </mat-card-title-group>
+    </mat-card-header>
+  </mat-card>
+</div>

@@ -54,7 +54,14 @@ export class DailyComponent {
           let region: string = this.data.timezone;
           this.region = region;
         });
+
     });
-   
+    this.router.navigate(['weather/daily'], {
+      queryParams: {
+        
+        lat: this.center.lat.toFixed(2),
+        lng: this.center.lng.toFixed(2),
+      },
+    });
   }
 }

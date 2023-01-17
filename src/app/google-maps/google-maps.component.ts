@@ -21,9 +21,9 @@ export class GoogleMapsComponent implements OnInit {
   ];
 
 
-  constructor(private route: Router) { }
+  constructor(private router: Router) { }
   hourlyClick() {
-    this.route.navigate(['weather/hourly'], {
+    this.router.navigate(['weather/hourly'], {
       queryParams: {
         lat: this.center.lat,
         lng: this.center.lng,
@@ -32,7 +32,7 @@ export class GoogleMapsComponent implements OnInit {
   }
 
   dailyclick() {
-    this.route.navigate(['weather/daily'], {
+    this.router.navigate(['weather/daily'], {
       queryParams: {
         lat: this.center.lat,
         lng: this.center.lng,
@@ -45,13 +45,15 @@ export class GoogleMapsComponent implements OnInit {
     if (event.latLng != null) {
       this.center = event.latLng.toJSON();
       this.markerPositions.push(event.latLng.toJSON());
-      this.route.navigate([], {
+      this.router.navigate([], {
         queryParams: {
           lat: this.center.lat.toFixed(2),
           lng: this.center.lng.toFixed(2),
         },
       });
     }
+    this.markerPositions=[{lat:this.center.lat,lng:this.center.lng}]
+
   }
   ngOnInit(): void {
     

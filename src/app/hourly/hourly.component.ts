@@ -25,8 +25,6 @@ export class HourlyComponent {
   windSpeed: any;
   region: any;
 
-  @Input()markerPosition=''
-
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.paramData = params;
@@ -51,7 +49,13 @@ export class HourlyComponent {
           let region: string = this.data.timezone;
           this.region = region;
         });
+        
     });
-   
+    this.router.navigate(['weather/hourly'], {
+      queryParams: {
+        lat: this.center.lat.toFixed(2),
+        lng: this.center.lng.toFixed(2),
+      },
+    });
   }
 }
