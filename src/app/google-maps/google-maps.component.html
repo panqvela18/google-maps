@@ -1,0 +1,18 @@
+<google-map
+  height="500px"
+  width="80%"
+  [zoom]="zoom"
+  [center]="center"
+  (mapClick)="mapClick($event)"
+>
+  <map-marker
+    *ngFor="let markerPosition of markerPositions"
+    [position]="markerPosition"
+    [options]="markerOptions"
+  >
+  </map-marker>
+</google-map>
+<div class="links">
+  <a (click)="hourlyClick()" routerLink="/weather/hourly">HOURLY</a>
+  <a (click)="dailyclick()" routerLink="/weather/daily">DAILY</a>
+</div>

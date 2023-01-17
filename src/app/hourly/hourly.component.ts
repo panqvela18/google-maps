@@ -1,13 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WeatherService } from '../weather.service';
 
 @Component({
-  selector: 'app-daily',
-  templateUrl: './daily.component.html',
-  styleUrls: ['./daily.component.css'],
+  selector: 'app-hourly',
+  templateUrl: './hourly.component.html',
+  styleUrls: ['./hourly.component.css'],
 })
-export class DailyComponent {
+export class HourlyComponent {
   constructor(
     private weatherService: WeatherService,
     private route: ActivatedRoute,
@@ -19,17 +19,11 @@ export class DailyComponent {
     lng: 43.97460830211639,
   };
   data: any;
-  dailyMaxTemp: any;
   paramData: any;
-  dailyMaxWindSpeed: any;
-  daily: any;
+  hourly: any;
+  temperatures: any;
+  windSpeed: any;
   region: any;
-  markerPositions: google.maps.LatLngLiteral[] = [
-    {
-      lat: this.center.lat,
-      lng: this.center.lng,
-    },
-  ];
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -42,20 +36,21 @@ export class DailyComponent {
         .getData(this.center.lat, this.center.lng)
         .subscribe((result) => {
           this.data = result;
-          let dailyMaxTemp: number[] = this.data.daily.temperature_2m_max;
-          this.dailyMaxTemp = dailyMaxTemp;
 
-          let dailyMaxSpeed: number[] = this.data.daily.windspeed_10m_max;
-          this.dailyMaxWindSpeed = dailyMaxSpeed;
+          let hours: number[] = this.data.hourly.time;
+          this.hourly = hours;
 
-          let dailyDate: number[] = this.data.daily.time;
-          this.daily = dailyDate;
+          let temperature: number[] = this.data.hourly.temperature_2m;
+          this.temperatures = temperature;
+
+          let windspeeds: number[] = this.data.hourly.windspeed_10m;
+          this.windSpeed = windspeeds;
 
           let region: string = this.data.timezone;
           this.region = region;
         });
     });
-    this.router.navigate(['weather/daily'], {
+    this.router.navigate(['weather/hourly'], {
       queryParams: {
         lat: this.center.lat.toFixed(2),
         lng: this.center.lng.toFixed(2),

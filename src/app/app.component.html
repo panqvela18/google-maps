@@ -1,37 +1,7 @@
-<mat-toolbar color="primary"> <a routerLink="/weather"> Google Map </a> </mat-toolbar>
+<mat-toolbar color="primary"> <a routerLink="/"> Google Map </a> </mat-toolbar>
 
 <h1>{{ title }}</h1>
 <h2>{{ subtitle }}</h2>
 
-<google-map
-  height="500px"
-  width="80%"
-  [zoom]="zoom"
-  [center]="center"
-  (mapClick)="mapClick($event)"
->
-  <map-marker
-    *ngFor="let markerPosition of markerPositions"
-    [position]="markerPosition"
-    [options]="markerOptions"
-  >
-  </map-marker>
-</google-map>
-<h2 class="region">{{ region }}</h2>
-<div class="links">
-  <a (click)="hourlyClick()" routerLink="/weather/hourly">HOURLY</a>
-  <a (click)="dailyClick()" routerLink="/weather/daily">DAILY</a>
-</div>
-<app-weather-card
-  *ngIf="showHourlyData"
-  [hour]="hourly"
-  [temperatures]="temperatures"
-  [windSpeed]="windSpeed"
-  
-></app-weather-card>
-<app-daily
-  *ngIf="showDailyData"
-  [daily]="daily"
-  [maxWindSpeed]="dailyMaxWindSpeed"
-  [maxTemp]="dailyTempMax"
-></app-daily>
+<app-google-maps></app-google-maps>
+<router-outlet></router-outlet>

@@ -5,9 +5,10 @@ import {HttpClientModule} from '@angular/common/http'
  import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from '../angular-material/angular-material.module';
-import { WeatherCardComponent } from './weather-card/weather-card.component'
 import { AppRoutingModule } from './app-routing.module';
 import { DailyComponent } from './daily/daily.component';
+import { HourlyComponent } from './hourly/hourly.component';
+import { GoogleMapsComponent } from './google-maps/google-maps.component';
 
 
 // @Injectable({
@@ -17,8 +18,9 @@ import { DailyComponent } from './daily/daily.component';
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherCardComponent,
     DailyComponent,
+    HourlyComponent,
+    GoogleMapsComponent,
     
   ],
   imports: [

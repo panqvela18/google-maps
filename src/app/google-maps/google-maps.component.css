@@ -1,0 +1,21 @@
+google-map {
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+.links a {
+  text-decoration: none;
+  margin-left: 100px;
+  padding: 20px 100px;
+  background-color: #8d42f5;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
